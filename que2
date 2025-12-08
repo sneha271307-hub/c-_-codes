@@ -1,0 +1,28 @@
+class Solution {
+public:
+    bool isPalindrome(int x) {
+      if(x < 0)
+      {
+        return false;
+      }
+        int n = x;
+        long revnum = 0;              // Why using long is better
+                                      If x is large (close to 2,147,483,647), reversing digits might overflow the range of int.
+                                      long prevents that crash.
+
+
+           while (n > 0) {
+            int digit = n % 10;
+            revnum = (revnum * 10) + digit;
+             n /= 10;
+        }
+
+        if(revnum == x){
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+};
